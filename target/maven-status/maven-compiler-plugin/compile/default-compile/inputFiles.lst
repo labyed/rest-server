@@ -1,3 +1,6 @@
+/home/mhilmi/IdeaProjects/restserver/src/main/java/com/clinkast/utils/CORSFilter.java
+/home/mhilmi/IdeaProjects/restserver/src/main/java/com/clinkast/config/ApplicationConfig.java
 /home/mhilmi/IdeaProjects/restserver/src/main/java/com/clinkast/beans/Employee.java
-/home/mhilmi/IdeaProjects/restserver/src/main/java/com/clinkast/rest/RestHelloWorld.java
 /home/mhilmi/IdeaProjects/restserver/src/main/java/com/clinkast/dao/InMemoryDataBaseManager.java
+/home/mhilmi/IdeaProjects/restserver/src/main/java/com/clinkast/beans/EmployeeDetails.java
+/home/mhilmi/IdeaProjects/restserver/src/main/java/com/clinkast/rest/EmployeeRessource.java

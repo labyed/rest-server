@@ -1,3 +1,6 @@
-com/clinkast/rest/RestHelloWorld.class
+com/clinkast/beans/EmployeeDetails.class
+com/clinkast/config/ApplicationConfig.class
+com/clinkast/utils/CORSFilter.class
 com/clinkast/beans/Employee.class
+com/clinkast/rest/EmployeeRessource.class
 com/clinkast/dao/InMemoryDataBaseManager.class

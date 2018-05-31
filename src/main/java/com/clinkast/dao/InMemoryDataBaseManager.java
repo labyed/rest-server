@@ -1,45 +1,58 @@
 package com.clinkast.dao;
 
 import com.clinkast.beans.Employee;
-
+import com.clinkast.beans.EmployeeDetails;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class InMemoryDataBaseManager {
-    private static Map<Long,Employee> store;
+    private static Map<Long, Employee> employees;
     private static InMemoryDataBaseManager instance = null;
 
     private InMemoryDataBaseManager() {
-        store = new HashMap<>();
-        initOneContact();
+        employees = new HashMap<>();
+        initEmployees();
     }
 
-    public static Map<Long,Employee> getStore() {
-        if(instance==null) {
+    public static Map<Long, Employee> getEmployees() {
+        if (instance == null) {
             instance = new InMemoryDataBaseManager();
         }
-        return store;
+        return employees;
     }
 
-    private static void initOneContact() {
-        Employee cHuang = new Employee(12L,"yassine","labyed","49 rue des étudiant", new Date(1993,6,17));
-        store.put(cHuang.getId(), cHuang);
-    }
-
-    public static void addEmployee(Employee employee){
-        if(instance==null) {
+    public static Employee getEmployee(Long id) {
+        if (instance == null) {
             instance = new InMemoryDataBaseManager();
         }
-        store.put(employee.getId(),employee);
+        return employees.get(id);
     }
 
-    public static Employee deleteEmployee(Long id){
-        if(instance==null) {
-            instance = new InMemoryDataBaseManager();
-        }
-        Employee employee = store.get(id);
-        store.remove(id);
+    private static void initEmployees() {
+        Employee employee1 = new Employee(new EmployeeDetails("Yassine", "Labyed", "NY",
+                "labyed.yassine@gmail.com", "0650805349", "69 avenue Gambetta", new Date()));
+        employees.put(employee1.getId(), employee1);
+        Employee employee2 = new Employee(new EmployeeDetails("Issam", "Fatah", "ClinKast",
+                "fatah.issam@gmail.com", "0677676766", "rue des étudiants", new Date()));
+        employees.put(employee2.getId(), employee2);
+        Employee employee3 = new Employee(new EmployeeDetails("Fadel", "NaN", "ClinKast",
+                "Nan.Fadel@gmail.com", "087698349", "Gare du Nord", new Date()));
+        employees.put(employee3.getId(), employee3);
+    }
+
+    public static Employee addEmployee(EmployeeDetails employeeDetails) {
+        Employee employee = new Employee(employeeDetails);
+        employees.put(employee.getId(), employee);
         return employee;
+    }
+
+    public static Employee editEmployee(Employee employee) {
+        employees.put(employee.getId(), employee);
+        return employee;
+    }
+
+    public static void deleteEmployee(Long id) {
+        employees.remove(id);
     }
 }
